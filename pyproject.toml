@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "e2e-platform-forge"
+dynamic = ["version"]
+description = "A lean, deterministic framework for composing end-to-end platform workflows."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "LicenseRef-Proprietary"
+license-files = ["LICENSE"]
+authors = [
+  { name = "LE THANH TUAN" },
+]
+keywords = ["automation", "orchestration", "validation", "workflows"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/troithumatme/e2e-platform-forge"
+Repository = "https://github.com/troithumatme/e2e-platform-forge"
+Issues = "https://github.com/troithumatme/e2e-platform-forge/issues"
+Commercial = "https://github.com/troithumatme/e2e-platform-forge/blob/main/COMMERCIAL.md"
+
+[project.scripts]
+e2e-platform-forge = "e2e_platform_forge.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["e2e_platform_forge*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "e2e_platform_forge.version.__version__" }
+
+[tool.setuptools.package-data]
+e2e_platform_forge = ["py.typed"]

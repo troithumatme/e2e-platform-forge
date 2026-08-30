@@ -1,0 +1,50 @@
+name: Feedback
+description: Share a question, idea, documentation concern, or reproducible problem.
+title: "[Feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the generic public framework. Do not include credentials, personal data, confidential material, or organization-specific implementation details.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Feedback type
+      options:
+        - Reproducible problem
+        - Improvement idea
+        - Documentation
+        - Commercial licensing inquiry
+        - Question
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Provide a release version or commit SHA when applicable.
+      placeholder: 0.1.0
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the outcome you expected and what happened instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction or example
+      description: Use only synthetic or publicly shareable inputs and remove all secrets.
+
+  - type: checkboxes
+    id: safe-content
+    attributes:
+      label: Public-content confirmation
+      options:
+        - label: I confirm this report contains no secrets, personal data, confidential material, or organization-specific implementation details.
+          required: true
